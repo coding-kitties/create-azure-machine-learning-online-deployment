@@ -36,9 +36,13 @@ jobs:
       - name: Create AML Online Endpoint
         uses: coding-kitties/create-azure-machine-learning-online-deployment@v0.3.0
         with:
-          deployment_file: "path/to/deployment.yml"
+          deployment_yaml_file_path: "path/to/deployment.yml"
+          model_name: "my-model"
+          model_version: "1"
           resource_group: "my-resource-group"
           workspace_name: "my-aml-workspace"
           endpoint_name: "my-endpoint"
+          registry_name: (optional) "my-registry"
+          registry_resource_group: (optional) "my-registry-resource-group"
           traffic: '{ "blue": 80, "green": 20, mirror": {"green": 80} }'
 ```

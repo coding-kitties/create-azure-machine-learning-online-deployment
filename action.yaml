@@ -1,0 +1,39 @@
+name: 'Create Azure Machine Learning Deployment'
+description: 'Create an Azure Machine Learning Deployment'
+author: 'Marc van Duyn'
+branding:
+  icon: 'cloud'
+  color: 'blue'
+
+inputs:
+  endpoint_name:
+    description: 'Name of the endpoint'
+    required: true
+  resource_group:
+    description: 'Azure Resource Group'
+    required: true
+  workspace_name:
+    description: 'Azure ML Workspace Name'
+    required: true
+  registry_name:
+    description: 'Azure Container Registry Name'
+    required: false
+  registry_resource_group:
+    description: 'Azure Container Registry Resource Group'
+    required: false
+  model_name:
+    description: 'Model Name'
+    required: true
+  model_version:
+    description: 'Model Version'
+    required: true
+  traffic:
+    description: 'Traffic'
+    required: true
+  deployment_yaml_file_path:
+    description: 'Path to the deployment.yaml file'
+    required: true
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
