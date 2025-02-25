@@ -12,7 +12,7 @@ Features:
 
 For other Azure Machine Learning actions check out:
 
-* [create-aml-online-endpoint](https://github.com/coding-kitties/create-azure-machine-learning-online-endpoint)
+* [create-azure-machine-learning-online-endpoint](https://github.com/coding-kitties/create-azure-machine-learning-online-endpoint)
 
 ## Dependencies on other Github Actions
 
@@ -34,7 +34,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Create AML Online Endpoint
-        uses: coding-kitties/create-aml-online-endpoint@v0.2.0
+        uses: coding-kitties/create-azure-machine-learning-online-deployment@v0.3.0
         with:
           deployment_file: "path/to/deployment.yml"
           resource_group: "my-resource-group"
