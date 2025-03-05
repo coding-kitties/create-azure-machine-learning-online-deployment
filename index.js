@@ -396,6 +396,11 @@ try {
         throw new Error("Traffic is required");
     }
 
+    // Check if deployment YAML file exists
+    if (!deploymentYamlFilePath) {
+        throw new Error("Deployment YAML file path is required.");
+    }
+
     // Check if the resource group exists
     console.log(`🔹 Checking if resource group '${resourceGroup}' exists...`)
     ;
@@ -431,7 +436,7 @@ try {
     }
 
     // Check if registry name is provided
-    if (registryName !== undefined) {
+    if (registryName !== undefined && registryName !== "") {
 
         // Check if the registry exists
         console.log(`🔹 Checking if registry '${registryName}' exists in resource group '${registryResourceGroup}'...`);
@@ -445,7 +450,7 @@ try {
     }
 
     // Check if model exists in registry
-    if(registryName !== undefined) {
+    if(registryName !== undefined && registryName !== "") {
         console.log(`🔹 Checking if model '${modelName}' exists in registry '${registryName}'...`);
 
         const modelInRegistryExists = await checkIfModelInRegistryExists(
@@ -469,10 +474,6 @@ try {
         }
     }
 
-    // Check if deployment YAML file exists
-    if (!deploymentYamlFilePath) {
-        throw new Error("Deployment YAML file path is required.");
-    }
     console.log(`🔹 Checking if deployment YAML file '${deploymentYamlFilePath}' exists...`);
 
     // Check if the deployment YAML file exists
