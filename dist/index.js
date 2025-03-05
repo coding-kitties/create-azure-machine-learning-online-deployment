@@ -27766,32 +27766,32 @@ try {
     const deploymentYamlFilePath = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("deployment_yaml_file_path");
 
     // Check if the required inputs are provided
-    if (!endpointName) {
+    if (!endpointName || endpointName === "") {
         throw new Error("Endpoint name is required.");
     }
 
-    if (!resourceGroup) {
+    if (!resourceGroup || resourceGroup === "") {
         throw new Error("Resource group is required");
     }
 
-    if (!workspaceName) {
+    if (!workspaceName || workspaceName === "") {
         throw new Error("Workspace name is required");
     }
 
-    if (!modelName) {
+    if (!modelName || modelName === "") {
         throw new Error("Model name is required");
     }
 
-    if (!modelVersion) {
+    if (!modelVersion || modelVersion === "") {
         throw new Error("Model version is required");
     }
 
-    if (!traffic) {
+    if (!traffic || traffic === "") {
         throw new Error("Traffic is required");
     }
 
     // Check if deployment YAML file exists
-    if (!deploymentYamlFilePath) {
+    if (!deploymentYamlFilePath || deploymentYamlFilePath === "") {
         throw new Error("Deployment YAML file path is required.");
     }
 
