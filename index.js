@@ -1,6 +1,6 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
-const fs = require('fs');
+import * as core from "@actions/core";
+import * as exec from "@actions/exec";
+import fs from "fs";
 
 async function checkIfEndpointExists(
     endpointName, resourceGroup, workspaceName
@@ -459,7 +459,7 @@ try {
     } else {
         console.log(`🔹 Checking if model '${modelName}' exists in workspace '${workspaceName}'...`);
 
-        const modelInWorkspaceExists = await checkIfModelInRegistryExists(
+        const modelInWorkspaceExists = await checkIfModelInWorkspaceExists(
             modelName, modelVersion, workspaceName, resourceGroup
         );
         if (!modelInWorkspaceExists) {
